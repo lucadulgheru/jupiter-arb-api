@@ -23,7 +23,9 @@ if (process.argv.length !== 6) {
 const TOKEN_LIST = await new TokenListProvider().resolve().then((tokens) => {
 	return tokens.filterByClusterSlug(ENV).getList();
 });
-const connection = new Connection(QUICKNODE_RPC_ENDPOINT, CONNECTION_COMMITMENT);
+//const connection = new Connection(GENESYS_RPC_ENDPOINT, CONNECTION_COMMITMENT);
+//const connection = new Connection(QUICKNODE_RPC_ENDPOINT, CONNECTION_COMMITMENT);
+const connection = new Connection(SERUM_RPC_ENDPOINT, CONNECTION_COMMITMENT);
 const wallet = new Wallet(Keypair.fromSecretKey(bs58.decode(process.env.WALLET_PRIVATE_KEY || '')));
 const walletPublicKey = wallet.publicKey.toString();
 
@@ -144,6 +146,6 @@ while (1) {
 		}
 //		console.log('After calculating profits: ' + (+new Date() - +beforeRoutes) / 1000.0 + ' seconds');
 	} catch (e) {
-		console.log(e);
+//		console.log(e);
 	}
 }
