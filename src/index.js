@@ -3,6 +3,7 @@ import { Wallet } from '@project-serum/anchor'
 import { TokenListProvider } from '@solana/spl-token-registry'
 import axios from 'axios'
 import bs58 from 'bs58'
+import promiseRetry from 'promise-retry'
 
 const GENESYS_RPC_ENDPOINT = 'https://ssc-dao.genesysgo.net';
 const SERUM_RPC_ENDPOINT = 'https://solana-api.projectserum.com';
